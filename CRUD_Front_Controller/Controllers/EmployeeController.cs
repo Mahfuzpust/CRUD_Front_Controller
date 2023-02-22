@@ -8,5 +8,10 @@ namespace CRUD_Front_Controller.Controllers
         {
             return View();
         }
+
+        public IActionResult Employee()
+        {
+            return View();
+        }
     }
 }
