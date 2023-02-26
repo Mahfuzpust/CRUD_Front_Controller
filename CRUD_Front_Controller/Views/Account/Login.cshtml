@@ -18,7 +18,9 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Password"></label>
-                    <input type="text" asp-for="Password" placeholder="Enter your name" class="form-control" autocomplete="off"/>
+                    <input id="password" type="password" asp-for="Password" placeholder="Enter your name" class="form-control" autocomplete="off"/>
+                    <i id="open" class="fa-sharp fa-solid fa-eye float-end" style="margin-top:-25px; margin-right: 6px; cursor:pointer"></i>
+                    <i id="closed" class="fa-sharp fa-solid fa-eye-slash float-end" style="margin-top:-25px; margin-right: 6px; cursor:pointer"></i>
                 </div>
                 <div class="form-group">
                     <input type="checkbox" asp-for="IsRemember"/>
@@ -35,4 +37,22 @@
     </div>
 </div>
 
+
+<script src="~/js/passopenhide.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#open").click(function () {
+        $("#open").hide();
+        $("#closed").show();
+        $("#password").attr("type", "text");
+    });
+    $("#closed").click(function () {
+        $("#closed").hide();
+        $("#open").show();
+        $("#password").attr("type", "text");
+    });
+});
+</script>
 
