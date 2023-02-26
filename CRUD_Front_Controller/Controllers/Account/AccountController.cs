@@ -24,9 +24,17 @@ namespace CRUD_Front_Controller.Controllers.Account
             return View();
         }
         [HttpPost]
-        public IActionResult SignUp(LoginSignUpViewModel model)
+        public IActionResult SignUp(SignUpUserViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                return View(model);
+            }
+            else
+            {
+                TempData["errorMessage"] = "Empty form can not submitted";
+                return View(model);
+            }
         }
 
     }
